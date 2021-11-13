@@ -33,6 +33,10 @@ export default class Todo extends Component {
       else return todo 
     }) 
     this.setState({todos:newTodo})
+
+    //cancel select all
+    if(done === false) this.setState({allchecked:false})
+
     // console.log(this.state)
   }
 
