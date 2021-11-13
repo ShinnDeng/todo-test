@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import {Routes, Route} from 'react-router-dom';
 
-import Create from './components/Create';
-import List from './components/List';
 import Nav from './components/Nav';
+
 import About from './routes/about';
+import Todo from './routes/todo';
 
 
 import Pic_ from './1.png';
@@ -19,62 +19,13 @@ export default class App extends Component {
     {id:Math.floor(Math.random() * 99999), description:'zzz', category:'javascript', done:false}
     ],
     allchecked:false
+  }  
+  
+  //接收todo page信息
+  dataStore = (obj)=>{
+    this.setState(obj)
   }
 
-
-  addTodo = (todoObj)=>{
-    const {todos} = this.state
-    const newTodo = [...todos,todoObj]
-    this.setState({todos:newTodo})
-  }
-
-
-  //更新checkbox的状态
-  checkUpdate = (id,done)=>{
-    const {todos} = this.state
-    //新建数组, 遍历数组, 更改特定值
-    const newTodo = todos.map((todo)=>{
-      if(todo.id === id) return {...todo,done:done}
-      else return todo 
-    })
-    this.setState({todos:newTodo})
-    // console.log(this.state)
-  }
-
-
-  //delete Item/删除单个todo
-  deleteTodo = (id)=>{
-    const {todos} = this.state
-    const newTodo = todos.filter((todo)=>{
-      return todo.id !== id
-    })
-    this.setState({todos:newTodo})
-  }
-
-
-  selectAll = (e)=>{
-    // console.log("all")
-    // console.log(e.target.checked)
-    const {todos} = this.state
-    this.setState({allchecked:e.target.checked})
-
-    //更新state所有item的done状态
-    const newTodo = todos.map((todo)=>{
-      return{...todo, done:e.target.checked}
-    })
-    this.setState({todos:newTodo})
-  }
-
-
-  //delete selected
-  deleteSelected = ()=>{
-    const {todos} = this.state
-    const newTodo = todos.filter((todo)=>{
-      return todo.done !== true
-    })
-    this.setState({todos:newTodo, allchecked:false})
-    
-  }
 
   render(){
 
@@ -83,26 +34,19 @@ export default class App extends Component {
       <div className="App">
         <div className="nav-bar">
           <Nav/>
-          {/* <Routes>
-            <Route path="/" element={<App />} />
-            <Route path="todo" element={<App />} />
-            <Route path="about" element={<About />} />
-          </Routes> */}
         </div>
         
-        <Create 
-          addTodo={this.addTodo}
-          todo={this.state.todos} 
-        />
-        <List 
-          todo={this.state.todos} 
-          checkUpdate={this.checkUpdate} 
-          deleteTodo={this.deleteTodo} 
-          deleteSelected={this.deleteSelected}
-          selectAll={this.selectAll}
-          allchecked={this.state.allchecked}
-        />
-        <img src={Pic_} alt=""/>
+        <div className="content-body">
+          <Routes>
+            <Route path="/" element={<Todo />} />
+            <Route path="todo" element={<Todo todo={this.state.todos} dataStore={this.dataStore}/>} />
+            <Route path="about" element={<About />} />
+          </Routes>
+          {/* <img src={Pic_} alt=""/> */}
+
+        </div>
+       
+
         
       </div>
     );
