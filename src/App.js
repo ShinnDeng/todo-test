@@ -12,13 +12,17 @@ export default class App extends Component {
     {id:Math.random(), description:'xxx', category:'css', done:true},
     {id:Math.random(), description:'yyy', category:'html', done:false},
     {id:Math.random(), description:'zzz', category:'javascript', done:true}
-  ]}
+    ],
+    allchecked:false
+  }
+
 
   addTodo = (todoObj)=>{
     const {todos} = this.state
     const newTodo = [...todos,todoObj]
     this.setState({todos:newTodo})
   }
+
 
   //更新checkbox的状态
   checkUpdate = (id,done)=>{
@@ -32,7 +36,8 @@ export default class App extends Component {
     // console.log(this.state)
   }
 
-  //delete Item/todo
+
+  //delete Item/删除单个todo
   deleteTodo = (id)=>{
     const {todos} = this.state
     const newTodo = todos.filter((todo)=>{
@@ -41,10 +46,29 @@ export default class App extends Component {
     this.setState({todos:newTodo})
   }
 
+
+  selectAll = (e)=>{
+    console.log("all")
+    console.log(e.target.checked)
+    const {todos} = this.state
+    this.setState({allchecked:e.target.checked})
+    
+    //更新state所有item的done状态
+    const newTodo = todos.map((todo)=>{
+      return{...todo, done:e.target.checked}
+    })
+    this.setState({todos:newTodo})
+  }
+
+
   //delete selected
   deleteSelected = ()=>{
-    console.log("click");
-    if(this.state.todos.done === true) return 
+    const {todos} = this.state
+    const newTodo = todos.filter((todo)=>{
+      return todo.done !== true
+    })
+    this.setState({todos:newTodo, allchecked:false})
+    
   }
 
   render(){
@@ -54,12 +78,13 @@ export default class App extends Component {
       <div className="App">
         <Nav/>
         <Create addTodo={this.addTodo}/>
-        {/* <List todo={todos}/> */}
         <List 
           todo={this.state.todos} 
           checkUpdate={this.checkUpdate} 
           deleteTodo={this.deleteTodo} 
           deleteSelected={this.deleteSelected}
+          selectAll={this.selectAll}
+          allchecked={this.state.allchecked}
         />
         <img src={Pic_} alt=""/>
       </div>

@@ -22,7 +22,7 @@ export default class Item extends Component {
         return (
             <div>
                 <label>
-                    <input type="checkbox" defaultChecked={done} onChange={this.handleCheck(id)}/>
+                    <input type="checkbox" checked={done} onChange={this.handleCheck(id)}/>
                     <div style={{display:'inline-block'}}>{description}</div>
                     <div style={{display:'inline-block'}}>{category} </div>
 

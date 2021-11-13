@@ -5,7 +5,7 @@ import Item from '../Item';
 
 export default class List extends Component {
     render() {
-        const {deleteSelected,todo,checkUpdate,deleteTodo} = this.props
+        const {deleteSelected,todo,checkUpdate,deleteTodo,selectAll} = this.props
         
         return (
             <div>
@@ -13,7 +13,7 @@ export default class List extends Component {
                 
                 <ul>
                     <label>
-                        <input type="checkbox" defaultChecked={false}/>
+                        <input type="checkbox" checked={this.props.allchecked} onChange={selectAll}/>
                         Description
                         Category
                         Operate
