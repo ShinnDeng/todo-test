@@ -9,9 +9,9 @@ import './App.css';
 
 export default class App extends Component {
   state = {todos:[
-    {id:Math.random(), description:'xxx', category:'css', done:true},
-    {id:Math.random(), description:'yyy', category:'html', done:false},
-    {id:Math.random(), description:'zzz', category:'javascript', done:true}
+    {id:Math.floor(Math.random() * 99999), description:'xxx', category:'css', done:false},
+    {id:Math.floor(Math.random() * 99999), description:'yyy', category:'html', done:false},
+    {id:Math.floor(Math.random() * 99999), description:'zzz', category:'javascript', done:false}
     ],
     allchecked:false
   }
@@ -48,11 +48,11 @@ export default class App extends Component {
 
 
   selectAll = (e)=>{
-    console.log("all")
-    console.log(e.target.checked)
+    // console.log("all")
+    // console.log(e.target.checked)
     const {todos} = this.state
     this.setState({allchecked:e.target.checked})
-    
+
     //更新state所有item的done状态
     const newTodo = todos.map((todo)=>{
       return{...todo, done:e.target.checked}
@@ -77,7 +77,10 @@ export default class App extends Component {
     return (
       <div className="App">
         <Nav/>
-        <Create addTodo={this.addTodo}/>
+        <Create 
+          addTodo={this.addTodo}
+          todo={this.state.todos} 
+        />
         <List 
           todo={this.state.todos} 
           checkUpdate={this.checkUpdate} 
@@ -87,6 +90,7 @@ export default class App extends Component {
           allchecked={this.state.allchecked}
         />
         <img src={Pic_} alt=""/>
+        
       </div>
     );
   }

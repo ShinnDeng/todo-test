@@ -30,14 +30,13 @@ export default class Create extends Component {
         // console.log(this.state)
     }
 
-
     //submit
     addHandler = ()=>{
         //invalid input
         if(this.state.description.trim() === '') return alert("description为空");
         const {description,category,content} = this.state;
         const todoObj = {   
-            id:Math.random(), 
+            id:Math.floor(Math.random() * 99999), 
             description:description, 
             category:category, 
             content:content,
@@ -57,6 +56,12 @@ export default class Create extends Component {
             
     }
     
+    //id
+    // newID(){
+    //     return 
+
+    // }
+
     render() {
         return (
             <div>
