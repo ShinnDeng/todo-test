@@ -1,11 +1,16 @@
 import React, { Component } from 'react'
+import {Routes, Route} from 'react-router-dom';
 
-import Nav from './components/Nav';
 import Create from './components/Create';
 import List from './components/List';
+import Nav from './components/Nav';
+import About from './routes/about';
+
+
 import Pic_ from './1.png';
 
 import './App.css';
+
 
 export default class App extends Component {
   state = {todos:[
@@ -76,7 +81,15 @@ export default class App extends Component {
     // const {todos} = this.state;
     return (
       <div className="App">
-        <Nav/>
+        <div className="nav-bar">
+          <Nav/>
+          {/* <Routes>
+            <Route path="/" element={<App />} />
+            <Route path="todo" element={<App />} />
+            <Route path="about" element={<About />} />
+          </Routes> */}
+        </div>
+        
         <Create 
           addTodo={this.addTodo}
           todo={this.state.todos} 

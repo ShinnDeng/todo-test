@@ -1,15 +1,13 @@
-//navigation bar
-
-import React, {Component} from 'react';
+import React, { Component } from 'react'
+import {Link} from 'react-router-dom';
 
 export default class Nav extends Component {
-    render(){
+    render() {
         return (
-        <div className="navBar">
-            <div>to do</div>
-            <div style={{display:'inline-block'}}>about</div>
-        </div>
-
-        );
+            <div>
+                <Link to="/todo">todo</Link> |{" "}
+                <Link to="/about">about</Link>
+            </div>
+        )
     }
 }
