@@ -8,17 +8,14 @@ export default class Todo extends Component {
   constructor(props){
     super();
     console.log("constructor");
-    // this.dataReceived.uid = "initial"
-    // if(this.props.dataReceived != null){
-    //   console.log("data-received")
-    // }
+
     this.componentDidMount = this.componentDidMount.bind(this);
   }
   
   state = {
     todos:[],
     allchecked:false,
-    // uid:""
+
   }  
 
   // static getDerivedStateFromProps(props, state) {
@@ -32,7 +29,7 @@ export default class Todo extends Component {
 
 
   componentDidMount(){
-    this.setState({/*uid:this.props.uid,*/ todos:this.props.todos, allchecked:this.props.allchecked})
+    this.setState({todos:this.props.todos, allchecked:this.props.allchecked})
     console.log(this.state)
     console.log("todo mount")
     // console.log(this.state)
@@ -43,7 +40,7 @@ export default class Todo extends Component {
   componentWillUnmount() {
     console.log("todo unmount");
     // console.log(this.props.dataStore);
-    this.props.dataStore({...this.state/*,uid:Math.floor(Math.random() * 99999)*/})
+    this.props.dataStore({...this.state})
   }
 
 
