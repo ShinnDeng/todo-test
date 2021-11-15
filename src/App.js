@@ -15,7 +15,6 @@ export default class App extends Component {
   state = {
     todos:[],
     allchecked:false,
-    // uid:""
   } 
 
   componentDidUpdate() {
@@ -41,11 +40,10 @@ export default class App extends Component {
         
         <div className="content-body">
           <Routes>
-            <Route path="/" element={<Todo />} />
+            <Route path="/" element={<Todo dataStore={this.dataStore} {...this.state}/>} />
             <Route path="todo" element={<Todo dataReceived={this.state} dataStore={this.dataStore} {...this.state}/>} />
             <Route path="about" element={<About save={this.state}/>} />
           </Routes>
-          {/* <img src={Pic_} alt=""/> */}
 
         </div>
 
