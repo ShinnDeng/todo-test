@@ -13,22 +13,21 @@ import './App.css';
 
 
 export default class App extends Component {
-  state = {todos:[
-    {id:Math.floor(Math.random() * 99999), description:'xxx', category:'css', done:false},
-    {id:Math.floor(Math.random() * 99999), description:'yyy', category:'html', done:false},
-    {id:Math.floor(Math.random() * 99999), description:'zzz', category:'javascript', done:false}
-    ],
-    allchecked:false
-  }  
+
+  componentDidUpdate() {
+    console.log("app update");  //没有update  //传入打包的data后app更新了
+    // console.log(this.state)
+  }
   
-  //接收todo page信息
-  dataStore = (obj)=>{
-    this.setState(obj)
+  //接收todo的data信息
+  dataStore = (data)=>{
+    console.log(data)
+    this.setState({...data})
   }
 
 
   render(){
-
+    console.log("app render")
     // const {todos} = this.state;
     return (
       <div className="App">
@@ -39,15 +38,13 @@ export default class App extends Component {
         <div className="content-body">
           <Routes>
             <Route path="/" element={<Todo />} />
-            <Route path="todo" element={<Todo todo={this.state.todos} dataStore={this.dataStore}/>} />
-            <Route path="about" element={<About />} />
+            <Route path="todo" element={<Todo dataReceived={this.state} dataStore={this.dataStore}/>} />
+            <Route path="about" element={<About save={this.state}/>} />
           </Routes>
           {/* <img src={Pic_} alt=""/> */}
 
         </div>
-       
 
-        
       </div>
     );
   }

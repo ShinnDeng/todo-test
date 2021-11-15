@@ -6,11 +6,39 @@ import List from '../../components/List';
 
 
 export default class Todo extends Component {
+  constructor(props){
+    super();
+    console.log("constructor");
+    // if(this.props.dataReceived != null){
+    //   console.log("data-received")
+    // }
+    // this.componentWillUnmount = this.componentWillUnmount.bind(this);
+  }
+  
   state = {todos:[
     {id:Math.floor(Math.random() * 99999), description:'xxx', category:'css', done:false},
+    {id:Math.floor(Math.random() * 99999), description:'yyy', category:'html', done:false},
+    {id:Math.floor(Math.random() * 99999), description:'zzz', category:'javascript', done:false}
+
     ],
     allchecked:false
   }  
+
+  static getDerivedStateFromProps(props, state) {
+    console.log(state);
+    if (props.dataReceived.key !== state.key) {
+      console.log("key change");
+    }
+    return null;
+  }
+
+  componentWillUnmount() {
+    console.log("todo unmount");
+    // console.log(this.props.dataStore);
+    const obj = {todo:"somthing"}
+    this.props.dataStore({...this.state,key:Math.floor(Math.random() * 99999)})
+  }
+
 
 
   addTodo = (todoObj)=>{
@@ -77,7 +105,6 @@ export default class Todo extends Component {
 
 
   render() {
-    console.log(this.props)
 
     return (
       <div>
