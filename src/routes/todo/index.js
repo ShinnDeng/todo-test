@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import {Routes, Route} from 'react-router-dom';
 
 import Create from '../../components/Create';
 import List from '../../components/List';
@@ -9,34 +8,42 @@ export default class Todo extends Component {
   constructor(props){
     super();
     console.log("constructor");
+    // this.dataReceived.uid = "initial"
     // if(this.props.dataReceived != null){
     //   console.log("data-received")
     // }
-    // this.componentWillUnmount = this.componentWillUnmount.bind(this);
+    this.componentDidMount = this.componentDidMount.bind(this);
   }
   
-  state = {todos:[
-    {id:Math.floor(Math.random() * 99999), description:'xxx', category:'css', done:false},
-    {id:Math.floor(Math.random() * 99999), description:'yyy', category:'html', done:false},
-    {id:Math.floor(Math.random() * 99999), description:'zzz', category:'javascript', done:false}
-
-    ],
-    allchecked:false
+  state = {
+    todos:[],
+    allchecked:false,
+    // uid:""
   }  
 
-  static getDerivedStateFromProps(props, state) {
-    console.log(state);
-    if (props.dataReceived.key !== state.key) {
-      console.log("key change");
-    }
-    return null;
+  // static getDerivedStateFromProps(props, state) {
+  //   console.log(props.dataReceived)
+  //   console.log(state);
+  //   if (props.dataReceived.key !== state.key) {
+  //     console.log("key change");
+  //   }
+  //   return null;
+  // }
+
+
+  componentDidMount(){
+    this.setState({/*uid:this.props.uid,*/ todos:this.props.todos, allchecked:this.props.allchecked})
+    console.log(this.state)
+    console.log("todo mount")
+    // console.log(this.state)
+    
   }
 
+  //组件卸载时传输数据
   componentWillUnmount() {
     console.log("todo unmount");
     // console.log(this.props.dataStore);
-    const obj = {todo:"somthing"}
-    this.props.dataStore({...this.state,key:Math.floor(Math.random() * 99999)})
+    this.props.dataStore({...this.state/*,uid:Math.floor(Math.random() * 99999)*/})
   }
 
 
@@ -44,11 +51,10 @@ export default class Todo extends Component {
   addTodo = (todoObj)=>{
     const {todos} = this.state
     const newTodo = [...todos,todoObj]
-    this.setState({todos:newTodo})
-
-    const newState = this.state.todos
-    this.props.dataStore(newState)
-
+    this.setState({todos:newTodo, allchecked:false})
+    // const newState = this.state.todos
+    // this.props.dataStore(newState)
+    
   }
 
 

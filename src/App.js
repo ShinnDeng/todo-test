@@ -7,12 +7,16 @@ import About from './routes/about';
 import Todo from './routes/todo';
 
 
-import Pic_ from './1.png';
-
 import './App.css';
 
 
 export default class App extends Component {
+
+  state = {
+    todos:[],
+    allchecked:false,
+    // uid:""
+  } 
 
   componentDidUpdate() {
     console.log("app update");  //没有update  //传入打包的data后app更新了
@@ -21,7 +25,7 @@ export default class App extends Component {
   
   //接收todo的data信息
   dataStore = (data)=>{
-    console.log(data)
+    // console.log(data)
     this.setState({...data})
   }
 
@@ -38,7 +42,7 @@ export default class App extends Component {
         <div className="content-body">
           <Routes>
             <Route path="/" element={<Todo />} />
-            <Route path="todo" element={<Todo dataReceived={this.state} dataStore={this.dataStore}/>} />
+            <Route path="todo" element={<Todo dataReceived={this.state} dataStore={this.dataStore} {...this.state}/>} />
             <Route path="about" element={<About save={this.state}/>} />
           </Routes>
           {/* <img src={Pic_} alt=""/> */}
