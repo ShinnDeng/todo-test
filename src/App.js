@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {Routes, Route} from 'react-router-dom';
+// import bootstrap from 'bootstrap';
 
 import Nav from './components/Nav';
 
@@ -16,11 +17,6 @@ export default class App extends Component {
     todos:[],
     allchecked:false,
   } 
-
-  componentDidUpdate() {
-    console.log("app update");  //没有update  //传入打包的data后app更新了
-    // console.log(this.state)
-  }
   
   //接收todo的data信息
   dataStore = (data)=>{
@@ -30,11 +26,11 @@ export default class App extends Component {
 
 
   render(){
-    console.log("app render")
+    // console.log("app render")
     // const {todos} = this.state;
     return (
       <div className="App">
-        <div className="nav-bar">
+        <div>
           <Nav/>
         </div>
         

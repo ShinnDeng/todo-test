@@ -20,16 +20,22 @@ export default class Item extends Component {
     render() {  
         const {id,description,category,done} = this.props
         return (
-            <div>
-                <label>
+            <tr className="text-center">
+                <th className="form-check-label" >
                     <input type="checkbox" checked={done} onChange={this.handleCheck(id)}/>
+                </th>
+                <td>
                     <div style={{display:'inline-block'}}>{description}</div>
+                </td>
+                <td>
                     <div style={{display:'inline-block'}}>{category} </div>
-
+                </td>
+                <td>    
                     <button style={{border:0, backgroundColor:'transparent', color:'red'}} onClick={this.deleteHandler(id)}>
-                        Delete</button>
-                </label>
-            </div>
+                    Delete</button>
+                </td>
+                
+            </tr>
         )
     }
 }

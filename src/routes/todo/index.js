@@ -5,12 +5,12 @@ import List from '../../components/List';
 
 
 export default class Todo extends Component {
-  constructor(props){
-    super();
-    console.log("constructor");
+  // constructor(props){
+  //   super();
+  //   console.log("constructor");
 
-    this.componentDidMount = this.componentDidMount.bind(this);
-  }
+  //   this.componentDidMount = this.componentDidMount.bind(this);
+  // }
   
   state = {
     todos:[],
@@ -30,15 +30,15 @@ export default class Todo extends Component {
 
   componentDidMount(){
     this.setState({todos:this.props.todos, allchecked:this.props.allchecked})
-    console.log(this.state)
-    console.log("todo mount")
+    // console.log(this.state)
+    // console.log("todo mount")
     // console.log(this.state)
     
   }
 
   //组件卸载时传输数据
   componentWillUnmount() {
-    console.log("todo unmount");
+    // console.log("todo unmount");
     // console.log(this.props.dataStore);
     this.props.dataStore({...this.state})
   }
