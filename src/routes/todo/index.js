@@ -111,18 +111,22 @@ export default class Todo extends Component {
 
     return (
       <div>
-        <Create 
-          addTodo={this.addTodo}
-          todo={this.state.todos} 
-        />
-        <List 
-          todo={this.state.todos} 
-          checkUpdate={this.checkUpdate} 
-          deleteTodo={this.deleteTodo} 
-          deleteSelected={this.deleteSelected}
-          selectAll={this.selectAll}
-          allchecked={this.state.allchecked}
-        />
+        <div className="container">
+          <Create 
+            addTodo={this.addTodo}
+            todo={this.state.todos} 
+          />
+        </div>
+        <div className="container py-3 px-0" style={{border:'1px solid'}}>
+          <List 
+            todo={this.state.todos} 
+            checkUpdate={this.checkUpdate} 
+            deleteTodo={this.deleteTodo} 
+            deleteSelected={this.deleteSelected}
+            selectAll={this.selectAll}
+            allchecked={this.state.allchecked}
+          />
+        </div>
       </div>
     )}
 }
