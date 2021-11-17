@@ -110,14 +110,14 @@ export default class Todo extends Component {
   render() {
 
     return (
-      <div>
-        <div className="container">
+      <div className="container d-sm-flex m-3 align-item-center justify-content-left">
+        <div>
           <Create 
             addTodo={this.addTodo}
             todo={this.state.todos} 
           />
         </div>
-        <div className="container py-3 px-0" style={{border:'1px solid'}}>
+        <div>
           <List 
             todo={this.state.todos} 
             checkUpdate={this.checkUpdate} 

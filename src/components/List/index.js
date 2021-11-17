@@ -8,9 +8,10 @@ export default class List extends Component {
         const {deleteSelected,todo,checkUpdate,deleteTodo,selectAll} = this.props
         
         return (
-            <div className="container">
+            <div className="container m-1 my-2">
+            <div className="">
                 
-                <button style={{backgroundColor:'#61BEF9', color:'white'}} onClick={deleteSelected}>Delete selected</button>
+                <div><button style={{backgroundColor:'#61BEF9', color:'white'}} onClick={deleteSelected}>Delete selected</button></div>
                 
                 <table className="table table-striped">
                     <thead>
@@ -30,6 +31,7 @@ export default class List extends Component {
                             })}
                     </tbody>  
                 </table>
+            </div>
             </div>
         )    
     }

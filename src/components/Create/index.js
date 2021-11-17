@@ -64,26 +64,39 @@ export default class Create extends Component {
 
     render() {
         return (
-            <div>
-                <div>
-                    Description: <input value={this.state.description} name="description" onInput={this.inputChangeHandler}/>
+            <div className="container m-1">
+            <div className="">
+                
+                <table className="table table-borderless">
+                    <tr className="">
+                        <td>Description:</td>
+                        <td>
+                            <input className="inputGroup-sizing-default" value={this.state.description} name="description" onInput={this.inputChangeHandler}/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Category:</td>
+                        <td>
+                            <select value={this.state.category} name="category" onChange={this.inputChangeHandler}>
+                                <option disabled="disabled" style={{display: 'none'}} value=''></option>
+                                <option value="css">css</option>
+                                <option value="html">html</option>
+                                <option value="javascript">javascript</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Content:</td>
+                        <td>
+                            {/* <form style={{display:'inline-block'}}> */}
+                            <textarea value={this.state.content} onInput={this.inputChangeHandler} name="content"/>
+	                        {/* </form> */}
 
-                </div>
-                <div>
-                    Category:
-                    <select value={this.state.category} name="category" onChange={this.inputChangeHandler}>
-                        <option disabled="disabled" style={{display: 'none'}} value=''></option>
-                        <option value="css">css</option>
-                        <option value="html">html</option>
-                        <option value="javascript">javascript</option>
-                    </select>
-                </div>
-                <div>
-                    Content: <form style={{display:'inline-block'}}>
-                    <textarea value={this.state.content} onInput={this.inputChangeHandler} name="content"/>
-	                </form>
-                </div>
+                        </td>
+                    </tr>
+                </table>
                 <button onClick={this.addHandler} name="submit">Submit</button>
+            </div>
             </div>
         )
     }
