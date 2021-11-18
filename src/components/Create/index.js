@@ -67,30 +67,34 @@ export default class Create extends Component {
             <div className="container m-1">
             <div className="">
                 
-                <table className="table table-borderless">
+                <table className="table table-borderless table-inline">
                     <tr className="">
                         <td>Description:</td>
                         <td>
-                            <input className="inputGroup-sizing-default" value={this.state.description} name="description" onInput={this.inputChangeHandler}/>
+                            <form>
+                            <input className="" value={this.state.description} name="description" onInput={this.inputChangeHandler}/>
+                            </form>
                         </td>
                     </tr>
                     <tr>
                         <td>Category:</td>
                         <td>
+                            <form>
                             <select value={this.state.category} name="category" onChange={this.inputChangeHandler}>
                                 <option disabled="disabled" style={{display: 'none'}} value=''></option>
                                 <option value="css">css</option>
                                 <option value="html">html</option>
                                 <option value="javascript">javascript</option>
                             </select>
+                            </form>
                         </td>
                     </tr>
                     <tr>
                         <td>Content:</td>
                         <td>
-                            {/* <form style={{display:'inline-block'}}> */}
+                            <form>
                             <textarea value={this.state.content} onInput={this.inputChangeHandler} name="content"/>
-	                        {/* </form> */}
+	                        </form>
 
                         </td>
                     </tr>

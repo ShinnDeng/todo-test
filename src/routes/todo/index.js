@@ -110,7 +110,7 @@ export default class Todo extends Component {
   render() {
 
     return (
-      <div className="container d-sm-flex m-3 align-item-center justify-content-left">
+      <div className="container d-sm-flex m-3 justify-content-left">
         <div>
           <Create 
             addTodo={this.addTodo}
