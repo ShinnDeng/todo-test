@@ -6,6 +6,7 @@ import Nav from './components/Nav';
 
 import About from './routes/about';
 import Todo from './routes/todo';
+import Description from './components/Description';
 
 
 import './App.css';
@@ -39,6 +40,8 @@ export default class App extends Component {
             <Route path="/" element={<Todo dataStore={this.dataStore} {...this.state}/>} />
             <Route path="todo" element={<Todo dataReceived={this.state} dataStore={this.dataStore} {...this.state}/>} />
             <Route path="about" element={<About save={this.state}/>} />
+            {/* <Route path="todo/:id" element={<Description {...this.state.todos}/>} /> */}
+            
           </Routes>
 
         </div>

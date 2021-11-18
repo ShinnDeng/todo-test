@@ -56,11 +56,6 @@ export default class Create extends Component {
             
     }
     
-    //id
-    // newID(){
-    //     return 
-
-    // }
 
     render() {
         return (

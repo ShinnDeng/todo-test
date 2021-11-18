@@ -1,6 +1,7 @@
 // todo list row item
 
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom';
 
 export default class Item extends Component {
     
@@ -25,6 +26,7 @@ export default class Item extends Component {
                     <input type="checkbox" checked={done} onChange={this.handleCheck(id)}/>
                 </th>
                 <td>
+                    {/* <Link></Link> */}
                     <div style={{display:'inline-block'}}>{description}</div>
                 </td>
                 <td>

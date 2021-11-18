@@ -5,9 +5,10 @@ export default class About extends Component {
         // console.log("about")
 
         return (
-            <div>
-                this is About page
-                
+            <div className="container mt-3">
+                <p>
+                This is About page.
+                </p>
             </div>
         )
     }
