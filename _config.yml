@@ -1,4 +1,3 @@
 type: git
 repo: https://github.com/ShinnDeng/todo-test.git
 branch: master
-theme: jekyll-theme-minimal
