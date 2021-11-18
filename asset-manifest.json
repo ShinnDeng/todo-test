@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/todo-test/static/css/main.5f858051.chunk.css",
+    "main.js": "/todo-test/static/js/main.2bb1458e.chunk.js",
+    "main.js.map": "/todo-test/static/js/main.2bb1458e.chunk.js.map",
+    "runtime-main.js": "/todo-test/static/js/runtime-main.6c3f108a.js",
+    "runtime-main.js.map": "/todo-test/static/js/runtime-main.6c3f108a.js.map",
+    "static/css/2.0a9ec390.chunk.css": "/todo-test/static/css/2.0a9ec390.chunk.css",
+    "static/js/2.19c61df6.chunk.js": "/todo-test/static/js/2.19c61df6.chunk.js",
+    "static/js/2.19c61df6.chunk.js.map": "/todo-test/static/js/2.19c61df6.chunk.js.map",
+    "index.html": "/todo-test/index.html",
+    "static/css/2.0a9ec390.chunk.css.map": "/todo-test/static/css/2.0a9ec390.chunk.css.map",
+    "static/css/main.5f858051.chunk.css.map": "/todo-test/static/css/main.5f858051.chunk.css.map",
+    "static/js/2.19c61df6.chunk.js.LICENSE.txt": "/todo-test/static/js/2.19c61df6.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6c3f108a.js",
+    "static/css/2.0a9ec390.chunk.css",
+    "static/js/2.19c61df6.chunk.js",
+    "static/css/main.5f858051.chunk.css",
+    "static/js/main.2bb1458e.chunk.js"
+  ]
+}
