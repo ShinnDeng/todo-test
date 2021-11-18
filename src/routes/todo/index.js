@@ -110,19 +110,23 @@ export default class Todo extends Component {
   render() {
 
     return (
-      <div>
-        <Create 
-          addTodo={this.addTodo}
-          todo={this.state.todos} 
-        />
-        <List 
-          todo={this.state.todos} 
-          checkUpdate={this.checkUpdate} 
-          deleteTodo={this.deleteTodo} 
-          deleteSelected={this.deleteSelected}
-          selectAll={this.selectAll}
-          allchecked={this.state.allchecked}
-        />
+      <div className="container d-sm-flex m-3 justify-content-left">
+        <div>
+          <Create 
+            addTodo={this.addTodo}
+            todo={this.state.todos} 
+          />
+        </div>
+        <div>
+          <List 
+            todo={this.state.todos} 
+            checkUpdate={this.checkUpdate} 
+            deleteTodo={this.deleteTodo} 
+            deleteSelected={this.deleteSelected}
+            selectAll={this.selectAll}
+            allchecked={this.state.allchecked}
+          />
+        </div>
       </div>
     )}
 }
